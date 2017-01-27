@@ -3,9 +3,9 @@
     'version': '1.0.0',
     'author': 'Erik Bruder',
     'category': 'Custom',
-    'website': 'http://bruder-datentechnik.de',
+    'website': 'http://www.bruder-datentechnik.de',
     'description': '''Allows you to change the Favicon,
-from both sides, website, and web''',
+    from both sides, website, and web''',
     'depends': ['website'],
     'data': [
         'views.xml',
