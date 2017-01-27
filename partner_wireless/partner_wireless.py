@@ -33,6 +33,7 @@ class res_partner(osv.osv):
         'router_type': fields.char('Router'),
         'router_pass': fields.char('Router Password'),
         'wireless_ssid': fields.char('Wireless SSID'),
+        'wireless_security': fields.char('Wireless Security'),
         'wireless_key': fields.char('Wireless Key'),
     }
 

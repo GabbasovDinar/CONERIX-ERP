@@ -8,10 +8,11 @@
                 <xpath expr="//notebook/page[@string='Internal Notes']" position="after">
                     <page string="Wireless">
 						<group>
-                            <field name="router_type" widget="url"/>
-                            <field name="router_pass" widget="url"/>
-                            <field name="wireless_ssid" widget="url"/>
-                            <field name="wireless_key" widget="url"/>
+                            <field name="router_type"/>
+                            <field name="router_pass"/>
+                            <field name="wireless_ssid"/>
+                            <field name="wireless_security"/>
+                            <field name="wireless_key"/>
 						</group>
                     </page>
                 </xpath>
