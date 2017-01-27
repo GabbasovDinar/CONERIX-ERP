@@ -1,0 +1,21 @@
+<openerp>
+    <data>
+        <record id="res_partner_extended_form_view" model="ir.ui.view">
+            <field name="name">res.partner.extended.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@string='Internal Notes']" position="after">
+                    <page string="Wireless">
+						<group>
+                            <field name="router_type" widget="url"/>
+                            <field name="router_pass" widget="url"/>
+                            <field name="wireless_ssid" widget="url"/>
+                            <field name="wireless_key" widget="url"/>
+						</group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

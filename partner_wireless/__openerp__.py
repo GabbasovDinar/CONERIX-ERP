@@ -3,15 +3,15 @@
     'name': "partner_wireless",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Wireless network credentials from partner
+        SSID, KEY, ROUTER, ROUTERPASSWORD""",
 
     'description': """
-        Long description of module's purpose
+        Safe the wireless networks of your partners
     """,
 
-    'author': "Your Company",
-    'website': "http://www.yourcompany.com",
+    'author': "BRUDER Datentechnik",
+    'website': "http://www.bruder-datentechnik.de",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
@@ -20,15 +20,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'sale'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'templates.xml',
+        'partner_wireless.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo.xml',
+    'qweb':[
     ],
+    "auto_install": false
+    "installable": True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
