@@ -22,9 +22,6 @@
 from openerp import tools
 from openerp.osv import osv
 from openerp.osv import fields
-from openerp.tools.translate import _
-import openerp.addons.decimal_precision as dp
-import time
 
 
 class res_partner(osv.osv):
