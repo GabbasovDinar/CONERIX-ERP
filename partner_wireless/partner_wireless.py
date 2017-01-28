@@ -19,7 +19,6 @@
 #
 ##############################################################################
 
-from openerp import tools
 from openerp.osv import osv
 from openerp.osv import fields
 
@@ -27,11 +26,11 @@ from openerp.osv import fields
 class res_partner(osv.osv):
     _inherit = "res.partner"
     _columns = {
-        'router_type': fields.char('Router'),
-        'router_pass': fields.char('Router Password'),
-        'wireless_ssid': fields.char('Wireless SSID'),
-        'wireless_security': fields.char('Wireless Security'),
-        'wireless_key': fields.char('Wireless Key'),
+        'x_router_type': fields.char('Router'),
+        'x_router_pass': fields.char('Router Password'),
+        'x_wireless_ssid': fields.char('Wireless SSID'),
+        'x_wireless_security': fields.char('Wireless Security'),
+        'x_wireless_key': fields.char('Wireless Key'),
     }
 
     _defaults = {

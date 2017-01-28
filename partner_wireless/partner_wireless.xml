@@ -7,12 +7,15 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@string='Internal Notes']" position="after">
                     <page string="Wireless">
-						<group>
-                            <field name="router_type"/>
-                            <field name="router_pass"/>
-                            <field name="wireless_ssid"/>
-                            <field name="wireless_security"/>
-                            <field name="wireless_key"/>
+						<group colspan="2" col="2">
+                            <field name="x_router_type"/>
+                            <field name="x_router_pass"/>
+                        </group>
+                        
+						<group colspan="2" col="2">
+                            <field name="x_wireless_ssid"/>
+                            <field name="x_wireless_security"/>
+                            <field name="x_wireless_key"/>
 						</group>
                     </page>
                 </xpath>

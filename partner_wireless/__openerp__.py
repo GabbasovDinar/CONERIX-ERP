@@ -7,7 +7,7 @@
     'website': 'http://www.bruder-datentechnik.de',
     'description': '''Allows you to store the wireless credentials,
     from partner''',
-    'depends': ['sale'],
+    'depends': ['base'],
     'data': [
         'partner_wireless.xml',
         ],
