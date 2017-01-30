@@ -7,7 +7,7 @@ This Modul adds credentials for partners wifi network to your partners form
 
 Bug Tracker
 ===========
-Bugs are tracked on 'GitHub Issues <https://github.com/conerix/CONERIX-ERP/issues>'_.
+Bugs are tracked on `GitHub Issues <https://github.com/conerix/CONERIX-ERP/issues>`_.
 
 Maintainer
 ==========
