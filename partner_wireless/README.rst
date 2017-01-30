@@ -5,10 +5,6 @@ PARTNER WIRELESS
 ================================
 This Modul adds credentials for partners wifi network to your partners form
 
-WS Favicon BD
-================================
-This Modul replaces the favicon on website
-
 Bug Tracker
 ===========
 Bugs are tracked on 'GitHub Issues <https://github.com/conerix/CONERIX-ERP/issues>'_.
