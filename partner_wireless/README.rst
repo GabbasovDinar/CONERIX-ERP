@@ -1,13 +1,17 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+   :alt: License AGPL3
 
 PARTNER WIRELESS
 ================================
 This Modul adds credentials for partners wifi network to your partners form
 
+WS Favicon BD
+================================
+This Modul replaces the favicon on website
 
 Bug Tracker
 ===========
-Bugs are tracked on `GitHub Issues <https://github.com/conerix/CONERIX-ERP/issues>`_.
+Bugs are tracked on 'GitHub Issues <https://github.com/conerix/CONERIX-ERP/issues>'_.
 
 Maintainer
 ==========
