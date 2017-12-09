@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Product Categories" active="True">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/Ornate_Plus/static/src/css/custom.css" />
+                <script type="text/javascript" src="/Ornate_Plus/static/src/js/custom.js" />
+                <script src="/Ornate_Plus/static/src/js/jquery.scrollUp.min.js"></script>
+            </xpath>
+        </template>
+        <template id="collapse_all_category" name="Ecommerce category products">
+            <div class="panel-group category-products" id="accordian">
+                <t t-foreach="request.env['product.public.category'].search([('parent_id', '!=', False)])" t-as="pct">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordian" t-attf-href="#sportswear#{pct.id}">
+                                    <span class="badge pull-right">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <t t-esc="pct.name" />
+                                </a>
+                            </h4>
+                        </div>
+                        <div t-attf-id="sportswear#{pct.id}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul>
+                                    <t t-foreach="pct.child_id" t-as="c">
+                                        <li>
+                                            <a t-attf-href="/shop/category/#{slug(c)}">
+                                                <t t-esc="c.name" />
+                                            </a>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </template>
+        <template id="products_category_lists" name="Product Category List" inherit_id="website_sale.products_categories" active="True">
+            <xpath expr="//div[@id='products_grid_before']/ul" position="replace">
+                <div class="col-sm-33">
+                    <div class="left-sidebar">
+                        <h2>Category</h2>
+                        <t t-call="Ornate_Plus.collapse_all_category" />
+                    </div>
+                    <div class="col-sm-77"></div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>
