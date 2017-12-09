@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Image zoom on click" customize_show="False">
+            <xpath expr="." position="inside">
+                <!-- For zoom -->
+                <script type="text/javascript" src="/Ornate_Plus/static/src/js/jquery.zoom.js"></script>
+                <script type="text/javascript" src="/Ornate_Plus/static/src/js/website_product_zoom.js"></script>
+                <link rel="stylesheet" href="/Ornate_Plus/static/src/css/zoom.css"></link>
+            </xpath>
+        </template>
+        <template id="ornate_shop_module_product_carousel" inherit_id="website_sale.product" name="Website Product Multi-Image Carousel" customize_show="True">
+            <xpath expr="//span[@t-field='product.image']" position="replace">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="slider slider-for">
+                            <t t-foreach="product.images" t-as="i">
+                                <div>
+                                    <span itemprop="image" class="zoom img-responsive image_zoom" t-field="i.image" t-field-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;zoom image_zoom product_detail_img&quot;, &quot;alt-field&quot;: &quot;name&quot;}" />
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <hr></hr>
+                    <div class="row-fluid" t-if="len(product.images)&gt;1">
+                        <div class="slider slider-nav">
+                            <t t-foreach="product.images" t-as="i">
+                                <div>
+                                    <span t-field="i.image" class="img-responsive" t-field-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;img-responsive&quot;}" />
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        <record id="feture_product_form" model="ir.ui.view">
+            <field name="name">feture.products.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div[2]/div[2]" position="inside">
+                    <div>
+                        <field name="is_recommended_product" />
+                        <label for="is_recommended_product" />
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

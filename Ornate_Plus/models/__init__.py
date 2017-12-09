@@ -1,0 +1,2 @@
+import ornate_products
+import product_images

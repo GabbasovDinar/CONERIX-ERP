@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="Ornate_Plus" inherit_id="website.assets_frontend" name="Ornate Shop Module">
+            <xpath expr="." position="inside">
+                <link href="/Ornate_Plus/static/src/css/custom.css" rel="stylesheet" />
+                <script type="text/javascript" src="/Ornate_Plus/static/src/js/custom.js"></script>
+            </xpath>
+        </template>
+        <template id="ecommerce_header" inherit_id="website.layout" name="Top Header">
+            <xpath expr="//header" position="replace">
+                <header id="header">
+                    <div class="header_top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="contactinfo">
+                                        <ul class="nav nav-pills">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-phone"></i>&amp;nbsp;<span t-field="res_company.phone"></span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-envelope">&amp;nbsp;</i>
+                                                    <span t-field="res_company.email"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="social-icons pull-right">
+                                        <ul class="nav navbar-nav" id="nav1">
+                                            <li>
+                                                <a target="_blank" t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank" t-att-href="website.social_googleplus" t-if="website.social_googleplus" rel="publisher">
+                                                    <i class="fa fa-google-plus"></i>
+                                                </a>
+                                            </li>
+                                            <li groups="base.group_public" t-if="website.user_id == user_id">
+                                                <a t-attf-href="/web/login">
+                                                    <b>Sign in</b>
+                                                </a>
+                                            </li>
+                                            <li class="Dm dropdown" t-ignore="true" t-if="website.user_id != user_id">
+                                                <a href="#" class="dropdown-toggle11" data-toggle="dropdown">
+                                                    <b>
+                                                        <span t-esc="user_id.name" />
+                                                        <span class="caret"></span>
+                                                    </b>
+                                                </a>
+                                                <ul class="dropdown-menu js_usermenu" role="menu">
+                                                    <li>
+                                                        <a href="/web" role="menuitem">My Account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <a href="/" class="navbar-brand logo">
+                                            <img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" />
+                                        </a>
+                                    </div>
+                                    <div class="collapse navbar-collapse navbar-top-collapse">
+                                        <ul class="nav navbar-nav navbar-right" id="top_menu">
+                                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                                <t t-call="website.submenu" />
+                                            </t>
+                                            <li class="dropdown mega-dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
+                                                <ul class="Ddm dropdown-menu mega-dropdown-menu row" id="DDM">
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Slider</li>
+                                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                                <div class="carousel-inner">
+                                                                    <div class="item active">
+                                                                        <a href="#">
+                                                                            <img src="/Ornate_Plus/static/src/img/M6.jpg" class="img-responsive" alt="product 1" />
+                                                                        </a>
+                                                                        <h4>
+                                                                            <small>Cool Headphones</small>
+                                                                        </h4>
+                                                                        <button class="btn btn-primary" type="button">49,99 €</button>
+                                                                        <button href="#" class="btn btn-default" type="button">
+                                                                            <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                                    </div>
+                                                                    <!-- End Item -->
+                                                                    <div class="item">
+                                                                        <a href="#">
+                                                                            <img src="/Ornate_Plus/static/src/img/M4.jpg" class="img-responsive" alt="product 2" />
+                                                                        </a>
+                                                                        <h4>
+                                                                            <small>Sony New Phone</small>
+                                                                        </h4>
+                                                                        <button class="btn btn-primary" type="button">9,99 €</button>
+                                                                        <button href="#" class="btn btn-default" type="button">
+                                                                            <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                                    </div>
+                                                                    <!-- End Item -->
+                                                                    <div class="item">
+                                                                        <a href="#">
+                                                                            <img src="/Ornate_Plus/static/src/img/M5.png" class="img-responsive" alt="product 3" />
+                                                                        </a>
+                                                                        <h4>
+                                                                            <small>Trendy New DSLR</small>
+                                                                        </h4>
+                                                                        <button class="btn btn-primary" type="button">49,99 €</button>
+                                                                        <button href="#" class="btn btn-default" type="button">
+                                                                            <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                                    </div>
+                                                                    <!-- End Item -->
+                                                                </div>
+                                                                <!-- End Carousel Inner -->
+                                                            </div>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Electronics</li>
+                                                            <li>
+                                                                <a href="#">Unique Features</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Image Responsive</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Auto Carousel</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Newsletter Form</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Four columns</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li class="dropdown-header">Gadgets</li>
+                                                            <li>
+                                                                <a href="#"></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Trendy Icon</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">New Design</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">New Idea</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Images</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Good layout</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Clothes</li>
+                                                            <li>
+                                                                <a href="#">Easy to customize</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Attractive</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Easy Design</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">More Options</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Refrences</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li class="dropdown-header"></li>
+                                                            <li class="dropdown-header">Devices</li>
+                                                            <li>
+                                                                <a href="#">Easy to customize</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Attractive</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Easy Design</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">More Options</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Refrences</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Accessories</li>
+                                                            <li>
+                                                                <a href="#">Default Navbar</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Lovely Fonts</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Responsive Dropdown </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Active hover</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">New Icons</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li class="dropdown-header">Newsletter</li>
+                                                            <li>
+                                                                <a href="#">subscribe</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Daily Notification</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Updated Products</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Active Newsletter</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">New Design</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <span class="caret"></span></a>
+                                                <ul class="Ddm dropdown-menu mega-dropdown-menu row">
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Dresses</li>
+                                                            <li>
+                                                                <a href="#">Unique Features</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Image Responsive</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Auto Carousel</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Newsletter Form</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Four columns</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li class="dropdown-header">Tops</li>
+                                                            <li>
+                                                                <a href="#">Good Typography</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Image Responsive</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Auto Carousel</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Newsletter Form</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Four columns</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Jackets</li>
+                                                            <li>
+                                                                <a href="#">Easy to customize</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Glyphicons</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Pull Right Elements</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Coloured Headers</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Calls to action</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li class="dropdown-header">Pants</li>
+                                                            <li>
+                                                                <a href="#">Coloured Headers</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Calls to action</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Easy to customize</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Glyphicons</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Pull Right Elements</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Name</li>
+                                                            <li>
+                                                                <a href="#">Address</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Location</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Responsive Dropdown </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Glyphicons</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Pull Right Elements</a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li class="dropdown-header">Contact</li>
+                                                            <li>
+                                                                <a href="#">Address</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Location</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Responsive Dropdown </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">Great Layout</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">DropDown Menu</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="col-sm-3">
+                                                        <ul>
+                                                            <li class="dropdown-header">Slider</li>
+                                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                                <div class="carousel-inner">
+                                                                    <div class="item active">
+                                                                        <a href="#">
+                                                                            <img src="/Ornate_Plus/static/src/img/M1.JPG" class="img-responsive" alt="product 1" />
+                                                                        </a>
+                                                                        <h4>
+                                                                            <small>Summer dress floral prints</small>
+                                                                        </h4>
+                                                                        <button class="btn btn-primary" type="button">49,99 €</button>
+                                                                        <button href="#" class="btn btn-default" type="button">
+                                                                            <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                                    </div>
+                                                                    <!-- End Item -->
+                                                                    <div class="item">
+                                                                        <a href="#">
+                                                                            <img src="/Ornate_Plus/static/src/img/m2.JPG" class="img-responsive" alt="product 2" />
+                                                                        </a>
+                                                                        <h4>
+                                                                            <small>Gold sandals with shiny touch</small>
+                                                                        </h4>
+                                                                        <button class="btn btn-primary" type="button">9,99 €</button>
+                                                                        <button href="#" class="btn btn-default" type="button">
+                                                                            <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                                    </div>
+                                                                    <!-- End Item -->
+                                                                    <div class="item">
+                                                                        <a href="#">
+                                                                            <img src="/Ornate_Plus/static/src/img/m3.JPG" class="img-responsive" alt="product 3" />
+                                                                        </a>
+                                                                        <h4>
+                                                                            <small>Denin jacket stamped</small>
+                                                                        </h4>
+                                                                        <button class="btn btn-primary" type="button">49,99 €</button>
+                                                                        <button href="#" class="btn btn-default" type="button">
+                                                                            <span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                                                    </div>
+                                                                    <!-- End Item -->
+                                                                </div>
+                                                                <!-- End Carousel Inner -->
+                                                            </div>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown cat-dropdown">
+                                                <a href="/kite/blog">
+                                                    <span>Blog</span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown cat-dropdown">
+                                                <a href="/kite/aboutus">
+                                                    <span>About us</span>
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+<!--                                             <li id="cart-link">
+                                                <a href="/shop/cart">
+                                                    <i class="cart_popover fa fa-shopping-cart"></i> Cart</a>
+                                            </li> -->
+
+                                                      <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+          <li t-att-class="'' if website_sale_order and website_sale_order.cart_quantity else 'hidden'">
+              <a href="/shop/cart">
+                  <i class="fa fa-shopping-cart"></i>
+                  My cart <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
+              </a>
+          </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </xpath>
+        </template>
+        <template id="cart_popover" name="Cart Popover">
+            <div t-if="not order or not order.website_order_line" class="well well-lg">
+        Your cart is empty!
+      </div>
+            <t t-if="order and order.website_order_line">
+                <t t-foreach="order.website_order_line" t-as="line">
+                    <div class="row mb8 cart_line">
+                        <div class="col-xs-3">
+                            <span t-field="line.product_id.image_small" t-field-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;img-rounded&quot;}" />
+                        </div>
+                        <div class="col-xs-9">
+                            <a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+                                <span t-esc="line.product_id.with_context(display_default_code=False).display_name" />
+                            </a>
+                            <br />
+                            <small>Qty: <t t-esc="int(line.product_uom_qty)" /></small>
+                        </div>
+                    </div>
+                </t>
+                <div class="text-center">
+                    <span class="h5">
+                        <t t-call="Ornate_Plus.total" />
+                    </span>
+                    <a class="btn btn-primary" href="/shop/cart">
+            View Cart (<t t-esc="order.cart_quantity" /> items)
+          </a>
+                </div>
+            </t>
+        </template>
+        <template id="homepage_inherit" inherit_id="website.homepage">
+            <data inherit_id="website.homepage">
+                <xpath expr="//div" position="inside">
+                    <div data-oe-id="318" data-oe-source-id="288" data-oe-xpath="/data/xpath/div[1]" data-oe-model="ir.ui.view" data-oe-field="arch">
+                        <div class="oe_structure oe_empty" id="wrap">
+                            <section>
+                                <div class="carousel slide mb8" id="myCarousel_1461667333867" style="height: 600px; overflow: hidden;margin-top: -5px;">
+                                    <ol class="carousel-indicators">
+                                        <li class="active" data-slide-to="0" data-target="#myCarousel_1461667333867" />
+                                        <li data-slide-to="1" data-target="#myCarousel_1461667333867" />
+                                        <li data-slide-to="2" data-target="#myCarousel_1461667333867" />
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="item oe_img_bg active" style="background-image: url(&quot;/Ornate_Plus/static/src/img/banner-10.jpg&quot;);">
+                                            <div class="container">
+                                                <div class="row content">
+                                                    <div class="carousel1-content col-md-6 col-sm-12">
+                                                        <h2>If you don't drive your business, you will be driven out of business.</h2>
+                                                        <h3>- B. C. Forbes</h3>
+                                                        <p>
+                                                            <a class="btn btn-success " href="/page/website.contactus">Contact us</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="carousel-img col-md-6 hidden-sm hidden-xs" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item oe_img_bg" style="background-image: url(&quot;/Ornate_Plus/static/src/img/banner-6.jpg&quot;);">
+                                            <div class="container">
+                                                <div class="row content">
+                                                    <div class="carousel2-content col-sm-12 col-md-7">
+                                                        <h2>We're all working together; that's the secret.</h2>
+                                                        <h3>- Sam Walton</h3>
+                                                        <p>
+                                                            <a class="btn btn-success btn-large" href="/page/website.contactus">Contact us</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="carousel-img col-md-6 hidden-sm hidden-xs" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item oe_img_bg" style="background-image: url(&quot;/Ornate_Plus/static/src/img/banner-7.png&quot;);">
+                                            <div class="container">
+                                                <div class="row content">
+                                                    <div class="carousel3-content col-md-6 col-sm-12">
+                                                        <h2>Our work is the presentation of our capabilities.</h2>
+                                                        <h3>-&amp;nbsp;Edward Gibbon</h3>
+                                                        <p>
+                                                            <a class="btn btn-success btn-large" href="/page/website.contactus">Contact us</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="carousel-img col-md-6 hidden-sm hidden-xs" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-control left" data-slide="prev" data-target="#myCarousel_1461667333867" href="#myCarousel_1461667333867" style="width: 10%">
+                                        <i class="fa fa-chevron-left" />
+                                    </div>
+                                    <div class="carousel-control right" data-slide="next" data-target="#myCarousel_1461667333867" href="#myCarousel_1461667333867" style="width: 10%">
+                                        <i class="fa fa-chevron-right" style="" />
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="mt32 mb0" style="height: 431px; overflow: hidden;">
+                                <div class="container">
+                                    <div class="row padding-top">
+                                        <div class="col-sm-4 shop-banner">
+                                            <div class="entry">
+                                                <div class="title">
+                                                    <h3>ADVERTISE<br />
+                                  Here</h3>
+                                                </div>
+                                                <img alt="" class="imgAB-responsive" src="/Ornate_Plus/static/src/img/ADV1.jpg" style="animation-play-state: paused; transition: none 0s ease 0s" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="entry shop-banner">
+                                                <div class="title">
+                                                    <h3></h3>
+                                                </div>
+                                                <img alt="" class="img-responsive" src="/Ornate_Plus/static/src/img/ADV2.jpg" style="background:#000" />
+                                            </div>
+                                            <div class="entry shop-banner">
+                                                <div class="title">
+                                                    <h3></h3>
+                                                </div>
+                                                <img alt="" class="img-responsive" src="/Ornate_Plus/static/src/img/ADV3.jpg" style="animation-play-state: paused; transition: none 0s ease 0s" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="mt48" style="height: 500px; overflow: hidden;">
+                                <div class="recommended_items">
+                                    <!--recommended_items-->
+                                    <div class="oe_structure" />
+                                    <h2 class="titleR text-center">Recommended items</h2>
+                                    <div class="row">
+                                        <div class="col-xs-1">
+                                            <div class="text-center">
+                                                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10">
+                                            <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <t t-set="r_length" t-value="len(website.get_recommended_length())" />
+                                                    <t t-set="r_item_count" t-value="0" />
+                                                    <t t-foreach="website.get_recommended_length()" t-as="r_count">
+                                                        <t t-set="r_item_count" t-value="r_item_count + 1" />
+                                                        <div class="item active" t-if="r_item_count == 1">
+                                                            <t t-foreach="r_count" t-as="rcom_item">
+                                                                <div class="col-sm-4">
+                                                                    <div class="product-image-wrapper">
+                                                                        <div class="single-products">
+                                                                            <div class="productinfo text-center">
+                                                                                <img t-att-src="website.image_url(rcom_item, 'image')" t-att-alt="rcom_item.name" height="300" width="250" style="border:2px solid #E6E6E6;border-radius: 4px;" />
+                                                                                <h2>
+                                                                                    <span t-field="rcom_item.list_price" style="white-space: nowrap; color:#FE980F;" t-field-options="{                                      &quot;widget&quot;: &quot;monetary&quot;,                                      &quot;display_currency&quot;: &quot;user_id.partner_id.property_product_pricelist.currency_id&quot;                                      }"></span>
+                                                                                </h2>
+                                                                                <p>
+                                                                                    <t t-esc="rcom_item.name" />
+                                                                                </p>
+                                                                                <form action="/shop/cart/update" class="oe_website_sale" method="post">
+                                                                                    <input type="hidden" class="product_id" name="product_id" t-att-value="rcom_item.product_variant_ids[0].id" />
+                                                                                    <a id="add_to_cart" class="btn btn-default add-to-cart a-submit">
+                                                                                        <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </t>
+                                                        </div>
+                                                        <div class="item" t-if="r_item_count != 1">
+                                                            <t t-foreach="r_count" t-as="rcom_item">
+                                                                <div class="col-sm-4">
+                                                                    <div class="product-image-wrapper">
+                                                                        <div class="single-products">
+                                                                            <div class="productinfo text-center">
+                                                                                <img t-att-src="website.image_url(rcom_item, 'image')" t-att-alt="rcom_item.name" height="300" width="250" style="border:2px solid #E6E6E6;border-radius: 4px;" />
+                                                                                <h2>
+                                                                                    <span t-field="rcom_item.list_price" style="white-space: nowrap; color:#FE980F;" t-field-options="{                                      &quot;widget&quot;: &quot;monetary&quot;,                                      &quot;display_currency&quot;: &quot;user_id.partner_id.property_product_pricelist.currency_id&quot;                                      }"></span>
+                                                                                </h2>
+                                                                                <p>
+                                                                                    <t t-esc="rcom_item.name" />
+                                                                                </p>
+                                                                                <form action="/shop/cart/update" class="oe_website_sale" method="post">
+                                                                                    <input type="hidden" class="product_id" name="product_id" t-att-value="rcom_item.product_variant_ids[0].id" />
+                                                                                    <a id="add_to_cart" class="btn btn-default add-to-cart a-submit">
+                                                                                        <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </t>
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <div class="text-center">
+                                                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/recommended_items-->
+                            </section>
+                            <section>
+                                <div class="video-section" style="height:400px">
+                                    <div class="row">
+                                        <div class="vg  col-xs-10">
+                                            <h2>Live Video BackGround</h2>
+                                            <h4> Make Your Website Alive </h4>
+                                            <p>
+                                                <a class="btn btn-success btn-large" href="/page/website.contactus">Contact us</a>
+                                            </p>
+                                            <!-- <div class="video-section">
+                        </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="mt0" style="height: 488px; overflow: hidden;">
+                                <div class="template-wrap carousel slide cf" id="services" style="padding-bottom:50px; padding-top:30px;">
+                                    <div class="parallax" style="background-attachment: fixed; background-color: rgb(250, 250, 250); background-position: 0px 0px; background-repeat: repeat;" />
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="animation-wrapper col-md-12 mt0 mb32" style="margin:10px 0 80px;">
+                                                <div class="heading-title-wrapper animated fadeInDown running" style="-webkit-animation-duration: 900ms; -moz-animation-duration: 900ms; -o-animation-duration: 900ms;animation-duration: 900ms; animation-delay:0ms; -webkit-animation-delay:0ms; -moz-animation-delay:0ms;-o-animation-delay:0ms;">
+                                                    <h1>Our services</h1>
+                                                    <h4>
+                                                        <span style="color:#666666;">We provide wide range of services which include Web design and development, Website redesigning, software development, SEO, E-commerce solutions, WordPress themes, &amp;nbsp;Support and Maintenance, Mobile application development and Dedicated developers services.</span>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div class="list-services-wrapper animation-wrapper" style="margin:10px 0 10px;">
+                                                <div class="col-md-4 animated pulse running" style="-webkit-animation-duration: 900ms; -moz-animation-duration: 900ms; -o-animation-duration: 900ms;animation-duration: 900ms; animation-delay:0ms; -webkit-animation-delay:0ms; -moz-animation-delay:0ms;-o-animation-delay:0ms;">
+                                                    <div class="service-wrapper">
+                                                        <span class="icon">
+                                                            <span style="color:#000000;">
+                                                                <i class="fa fa-rocket" />
+                                                            </span>
+                                                        </span>
+                                                        <h2 class="title">
+                                                            <font color="#000000">Boost Your Design</font>
+                                                        </h2>
+                                                        <p>The first glimpse of your site is very important when your customer will make an opinion and compare your business to your competitor’s.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 animated pulse running" style="-webkit-animation-duration: 900ms; -moz-animation-duration: 900ms; -o-animation-duration: 900ms;animation-duration: 900ms; animation-delay:300ms; -webkit-animation-delay:300ms; -moz-animation-delay:300ms;-o-animation-delay:300ms;">
+                                                    <div class="service-wrapper">
+                                                        <span style="color:#000000;">
+                                                            <span class="icon">
+                                                                <i class="fa fa-leaf" />
+                                                            </span>
+                                                        </span>
+                                                        <h2 class="title">
+                                                            <font color="#000000">Mobile Technology</font>
+                                                        </h2>
+                                                        <p>Mobile technology is one of the fastest evolving technologies in the world which is the best way of staying in touch with the customers 24×7.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 animated pulse running" style="-webkit-animation-duration: 900ms; -moz-animation-duration: 900ms; -o-animation-duration: 900ms;animation-duration: 900ms; animation-delay:600ms; -webkit-animation-delay:600ms; -moz-animation-delay:600ms;-o-animation-delay:600ms;">
+                                                    <div class="service-wrapper">
+                                                        <span style="color:#000000;">
+                                                            <span class="icon">
+                                                                <i class="fa fa-gift" />
+                                                            </span>
+                                                        </span>
+                                                        <h2 class="title">
+                                                            <span style="color:#000000;">Support &amp;amp; Maintenance</span>
+                                                        </h2>
+                                                        <p>For a smooth running of IT infrastructure not only the development of application is important but also proper maintenance is equally important.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="carousel slide mb0 mt0" id="myCarousel_1461658185499" style="height: 424px; overflow: hidden;">
+                                <ol class="carousel-indicators">
+                                    <li class="active" data-slide-to="0" data-target="#myCarousel_1461658185499" />
+                                    <li data-slide-to="1" data-target="#myCarousel_1461658185499" />
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="item oe_img_bg active" style="background-image: url(&quot;/Ornate_Plus/static/src/img/image5.jpg&quot;);">
+                                        <div class="container">
+                                            <div class="row content">
+                                                <div class="carousel-content col-sm-12 mb128 mt128 col-md-5">
+                                                    <h2 style="text-align: center;">Sell Easily</h2>
+                                                    <h3 style="text-align: center;">Write one sentence to convince visitor about your message.</h3>
+                                                    <p style="text-align: center;">
+                                                        <a class="btn btn-success btn-large" href="/page/website.contactus">Contact us</a>
+                                                    </p>
+                                                </div>
+                                                <div class="carousel-img hidden-sm hidden-xs col-md-7 mb0 mt32">
+                                                    <img alt="Banner Odoo Image" class="img-responsive" src="/Ornate_Plus/static/src/img/image4.jpg" style="animation-play-state: paused; transition: none" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item oe_img_bg" style="background-image: url(&quot;/Ornate_Plus/static/src/img/velour.jpg&quot;);">
+                                        <div class="container">
+                                            <div class="row content">
+                                                <div class="carousel-content col-md-6 col-sm-12 mb64 mt128">
+                                                    <h2 style="text-align: center;">Sell Online.</h2>
+                                                    <h3 style="text-align: center;">Write one sentence to convince visitor about your message.</h3>
+                                                    <p style="text-align: center;">
+                                                        <a class="btn btn-success btn-large" href="/page/website.contactus">Contact us</a>
+                                                    </p>
+                                                </div>
+                                                <div class="carousel-img col-md-6 hidden-sm hidden-xs mt128">
+                                                    <img alt="Banner Odoo Image" class="img-responsive" src="/Ornate_Plus/static/src/img/image2.png" style="animation-play-state: paused; transition: none" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-control left" data-slide="prev" data-target="#myCarousel_1461658185499" href="#myCarousel_1461658185499" style="width: 10%">
+                                    <i class="fa fa-chevron-left" style="" />
+                                </div>
+                                <div class="carousel-control right" data-slide="next" data-target="#myCarousel_1461658185499" href="#myCarousel_1461658185499" style="width: 10%">
+                                    <i class="fa fa-chevron-right" style="" />
+                                </div>
+                            </div>
+                            <section>
+                                <div class="carousel slide mb0 mt0" id="myCarousel_1461658764285" style="height: 230px; overflow: hidden;top: 15px">
+                                    <div class="carousel-inner ">
+                                        <div class="item active" style="background-image: none;">
+                                            <div class="container">
+                                                <div class="row content" />
+                                                <div class="col-md-3">
+                                                    <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo1.png" style="" />
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo2.png" style="animation-play-state: paused; transition: none" />
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo3.png" style="animation-play-state: paused; transition: none" />
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo4.png" style="animation-play-state: paused; transition: none" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item text_only oe_img_bg" style="background-image: none;">
+                                            <div class="container">
+                                                <div class="content">
+                                                    <div class="row" />
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo5.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo6.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo7.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo8.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item text_only oe_img_bg" style="background-image: none;">
+                                            <div class="container">
+                                                <div class="content">
+                                                    <div class="row" />
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo9.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo10.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo11.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <img alt="OpenERP logo" class="img img-responsive img-thumbnail" src="/Ornate_Plus/static/src/img/logo12.png" style="animation-play-state: paused; transition: none" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-control left" data-slide="prev" data-target="#myCarousel_1461658764285" href="#myCarousel_1461658764285" style="width: 10%">
+                                        <i class="fa fa-chevron-left" style="" />
+                                    </div>
+                                    <div class="carousel-control right" data-slide="next" data-target="#myCarousel_1461658764285" href="#myCarousel_1461658764285" style="width: 10%">
+                                        <i class="fa fa-chevron-right" style="" />
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="parallax oe_img_bg" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="height: 512px; overflow: hidden; background-image: url(&quot;/Ornate_Plus/static/src/img/image7.jpg&quot;); background-attachment: scroll; background-position: 0px 1233.3px;">
+                                <div>
+                                    <div>
+                                        <div class="oe_structure">
+                                            <div class="carousel quotecarousel slide mb0" id="myCarousel_1461947812260" style="height: 448px; overflow: hidden;">
+                                                <div class="carousel-inner">
+                                                    <div class="item text_only active">
+                                                        <div class="container">
+                                                            <div class="content">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 mt32 mb64">
+                                                                        <h1 class="text-center">
+                                                                            <span style="color:#000000;">Our References</span>
+                                                                        </h1>
+                                                                        <h3 class="text-muted text-center">
+                                                                            <span style="color:#000000;">More than 500 happy customers.</span>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-md-offset-1 mt16 mb32">
+                                                                        <blockquote>
+                                                                            <p>
+                                                                                <span style="color:#000000;">Write a quote here from one of your customers. Quotes are a great way to build confidence in your products or services.</span>
+                                                                            </p>
+                                                                            <small>
+                                                                                <span style="color:#000000;">Author of this quote</span>
+                                                                            </small>
+                                                                        </blockquote>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-md-offset-2 mt16 mb32">
+                                                                        <blockquote>
+                                                                            <p>
+                                                                                <span style="color:#000000;">Odoo provides essential platform for our project management. Things are better organized and more visible with it.</span>
+                                                                            </p>
+                                                                            <small>
+                                                                                <span style="color:#000000;">John Doe, CEO</span>
+                                                                            </small>
+                                                                        </blockquote>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <hr />
+                        </div>
+                    </div>
+                </xpath>
+            </data>
+        </template>
+        <template id="new_footer" inherit_id="website.layout">
+            <xpath expr="//footer" position="replace">
+                <footer id="footer" style="display: block;">
+                    <div class="footer-top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="single-widget" id="info">
+                                        <h2>Service</h2>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li>
+                                                <a href="#">Online Help</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Contact Us</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Order Status</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Change Location</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">FAQ’s</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="single-widget">
+                                        <h2>Policies</h2>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li>
+                                                <a href="#">Terms of Use</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Privecy Policy</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Refund Policy</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Billing System</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Ticket System</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="single-widget">
+                                        <h2>About Shoppe</h2>
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li>
+                                                <a href="#">Company Information</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Careers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Store Location</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Affillate Program</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Copyright</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-sm-offset-1">
+                                    <div class="single-widget">
+                                        <h2>News Letter</h2>
+                                        <form action="#" class="searchform">
+                                            <input type="text" placeholder="Your email address" />
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fa fa-arrow-circle-o-right"></i>
+                                            </button>
+                                            <p>Enter Email and get All the <br /> News And Updates of latest products</p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <p class="pull-left">Copyright © 2016 OdooShoppe Inc. All rights reserved.</p>
+                                <p class="pull-right">Designed by : <span><a target="_blank" href="http://www.techspawn.com">Techspawn</a></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="back-top" style="display: block;">
+                        <a class="img-square" href="#0">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </footer>
+            </xpath>
+        </template>
+<!--         <template id="clean_script" inherit_id="website.assets_frontend" name="Clean scripts">
+            <xpath expr="/t" position="inside">
+                <script type="text/javascript" src="/Ornate_Plus/static/src/js/custom.js" data-no-instant=""></script>
+                <script type="text/javascript">
+                 $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+         arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+         slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            centerMode: true,
+            focusOnSelect: true,
+            arrows: false,
+        });
+        </script>
+            </xpath>
+        </template> -->
+    </data>
+</openerp>
