@@ -1,0 +1,17 @@
+<openerp>
+    <data>
+        <!--  -->
+        <!--   <record id="object0" model="datentechnik.wireless"> -->
+        <!--     <field name="Encryption">WPA</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="datentechnik.wireless"> -->
+        <!--     <field name="Encryption">WPA 2</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="datentechnik.wireless"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="wpa_encryption" model="datentechnik.datentechnik">
+            <field name="wireless">1</field>
+            <field name="encryption">WPA</field>
+            <field name="description">A description for WPA Encryption</field>
+        </record>
+        <record id="wpa2_encryption" model="datentechnik.datentechnik">
+            <field name="wireless">2</field>
+            <field name="encryption">WPA 2</field>
+            <field name="description">A description for WPA 2 Encryption</field>
+        </record>
+    </data>
+</openerp>

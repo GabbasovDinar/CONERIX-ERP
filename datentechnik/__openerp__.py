@@ -1,31 +1,22 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "datentechnik",
-
-    'summary': """
-        Management system for computer service
-        customer credentials""",
-
-    'description': """
-        Long description of module's purpose
-    """,
-
-    'author': "BRUDER Datentechnik",
-    'website': "http://www.bruder-datentechnik.de",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
-    # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
-
-    # any module necessary for this one to work correctly
+    'name': "BRUDER Datentechnik",
+    'version': '0.0.1',
+    'author': 'Erik Bruder',
+    'category': 'Custom',
+    'website': 'http://www.bruder-datentechnik.de',
+    'description': '''Main Modul for BRUDER Datentechnik extension,
+    Site structure''',
     'depends': ['base'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'templates.xml',
+	'templates.xml',
+	'data/data.xml',
     ],
     # only loaded in demonstration mode
+    'demo': [
+        'demo.xml',
+    ],
 }

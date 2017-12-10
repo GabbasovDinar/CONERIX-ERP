@@ -1,22 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        <!-- <template id="listing"> -->
-        <!--   <ul> -->
-        <!--     <li t-foreach="objects" t-as="object"> -->
-        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
-        <!--         <t t-esc="object.display_name"/> -->
-        <!--       </a> -->
-        <!--     </li> -->
-        <!--   </ul> -->
-        <!-- </template> -->
-        <!-- <template id="object"> -->
-        <!--   <h1><t t-esc="object.display_name"/></h1> -->
-        <!--   <dl> -->
-        <!--     <t t-foreach="object._fields" t-as="field"> -->
-        <!--       <dt><t t-esc="field"/></dt> -->
-        <!--       <dd><t t-esc="object[field]"/></dd> -->
-        <!--     </t> -->
-        <!--   </dl> -->
-        <!-- </template> -->
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="datentechnik_list_action">
+            <field name="res_model">datentechnik.datentechnik</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">form,tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first record
+                </p>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_datentechnik_menu" name="Datentechnik"/>
+      	<menuitem id="datentechnik_menu" name="Wireless Overview" parent="main_datentechnik_menu"/>
+        <menuitem id="encryption_overview_menu" name="Encryption" parent="datentechnik_menu" action="datentechnik_list_action"/>
+        <!-- Full id location:
+             action="openacademy.course_list_action"
+             It is not required when it is the same module -->
     </data>
 </openerp>
